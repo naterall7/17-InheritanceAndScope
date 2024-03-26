@@ -1,5 +1,5 @@
 ###############################################################################
-# TODO: 1. (4 pts)
+# DONE: 1. (4 pts)
 #
 #   For this module, we are going to build off our Pet class that we created in
 #   m2 of the session 16 coding exercises.
@@ -27,8 +27,23 @@
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
 
+class Pet:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def __str__(self):
+        return f"Name: {self.name}, Age: {self.age}"
+    def speak(self):
+        print(f"{self.name}: *animal noises*")
+
+class Dog(Pet):
+    def fetch(self):
+        print(f"{self.name} ran to get the stick!")
+    def speak(self):
+        print(f"{self.name}: Bark! Bark! Bark!")
+
 ###############################################################################
-# TODO: 2. (4 pts)
+# DONE: 2. (4 pts)
 #
 #   Now, write your own class of whatever type of pet you wish.
 #
@@ -47,8 +62,23 @@
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
 
+class Fish(Pet):
+    def __init__(self, name, age, species, gender):
+        self.name = name
+        self.age = age
+        self.species = species
+        self.gender = gender
+    def __str__(self):
+        return super().__str__() + f", Species: {self.species}, Gender: {self.gender}"
+    def speak(self):
+        return super().speak()
+    def trick(self):
+        print(f"{self.name} jumped out of the water and did a flip!")
+    def birthday(self):
+        print(f"Today is {self.name}'s birthday and they are turning {self.age}!")
+
 ###############################################################################
-# TODO: 3. (4 pts)
+# DONE: 3. (4 pts)
 #
 #   Now let's use our classes!
 #
@@ -72,3 +102,14 @@
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
 
+def main():
+    Pet1 = Dog("Remi", "4 years old")
+    print(Pet1)
+    Pet2 = Fish("Goldie", "1 year old", "goldfish", "female")
+    print(Pet2)
+    Pet1.speak()
+    Pet2.speak()
+    Pet1.fetch()
+    Pet2.birthday()
+    Pet2.trick()
+main()
